@@ -3,45 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RoomInfo
-{
-    public string name;
-    public int x;
-    public int y;
-}
-
 public class RoomController : MonoBehaviour
 {
+    public GameObject[] walls;
+    public GameObject[] entrances;
 
-    public static RoomController Instance;
-
-    string currentWorldName = "Main";
-
-    Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
-
-    public List<Room> loadedRooms = new List<Room>();
-
-    bool isLoadingRoom = false;
-
-    private void Awake()
+    public void UpdateRoom(bool[] status)
     {
-        Instance = this;
-    }
+        for (int i = 0; i < status.Length; i++)
+        {
+            entrances[i].SetActive(status[i]);
+            walls[i].SetActive(!status[i]);
 
-    public bool DoesRoomExist(int x, int y)
-    {
-        return loadedRooms.Find(item => item.X == x && item.Y == y) != null;
-
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }
