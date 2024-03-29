@@ -18,15 +18,32 @@ public class DungeonGenerator : MonoBehaviour
     public Vector2 offset;
 
     List<Cell> board;
+    bool isDungeonGenerated = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         MazeGenerator();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            MazeGenerator();
+        }
+    }
+
     void GenerateDungeon()
     {
+        if (isDungeonGenerated)
+        {
+            foreach (Transform child in transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            isDungeonGenerated = false;
+        }
+
         for (int i = 0; i < size.x; i++)
         {
             for (int j = 0; j < size.y; j++)
@@ -41,7 +58,9 @@ public class DungeonGenerator : MonoBehaviour
                 }
             }
         }
+        isDungeonGenerated = true;
     }
+
 
     void MazeGenerator()
     {
