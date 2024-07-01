@@ -61,7 +61,6 @@ public class DungeonGenerator : MonoBehaviour
         isDungeonGenerated = true;
     }
 
-
     void MazeGenerator()
     {
         board = new List<Cell>();
@@ -142,9 +141,7 @@ public class DungeonGenerator : MonoBehaviour
                         board[currentCell].status[1] = true;
                     }
                 }
-
             }
-
         }
         GenerateDungeon();
     }

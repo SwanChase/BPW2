@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 648088248726643299, guid: 687e0a55918c375459920da5f32b93a7, type: 3}
       propertyPath: isTimeDeath
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6608000126239218613, guid: 687e0a55918c375459920da5f32b93a7, type: 3}
       propertyPath: m_LocalPosition.x
